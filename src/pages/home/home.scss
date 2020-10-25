@@ -37,4 +37,42 @@
       color: $red-smooth !important;
     }
   }
+  .footer {
+    display:flex;
+    height:48px;
+    align-items: center;
+    border-top: 2px solid $black-10;
+    justify-content: flex-end;
+    padding-right:60px;
+    font-size: 18px;
+    font-weight: 600;
+    color: $black-60;
+    .limits {
+      margin-right: 32px;
+      .MuiInput-underline::after {
+        display: none !important;
+        opacity: 0 !important;
+      }
+      .MuiInput-underline::before {
+        display: none !important;
+      }
+    }
+    .limit-label {
+      padding-top:2px !important;
+      padding-right:2px;
+    }
+    .value {
+      font-weight: 800;
+      color: $black-90;
+    }
+    .buttons {
+      margin-left:6px;
+      padding-top:5px;
+      svg {
+        margin-left: 4px;
+        font-size:32px !important;
+        cursor: pointer;
+      }
+    }
+  }
 }

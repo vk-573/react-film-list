@@ -7,7 +7,6 @@ import "./filterBar.scss";
 export const FilterBar = (props) => {
   const [dropped, setDrop] = useState(false);
   const [categories, setCategories] = useState([{}]);
-  const [refresing, refresh] = useState(null);
 
   const onDrop = () => {
     setDrop(!dropped)
