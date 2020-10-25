@@ -1,0 +1,53 @@
+// general app css file
+@import "variables";
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  min-height: 100vh;
+  // background: $red-smooth;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to bottom, $red-smooth, $red-smooth-light);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to bottom, $red-smooth, $red-smooth-light); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+//   background: #ECE9E6;  /* fallback for old browsers */
+// background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+// background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+// background: #EC6F66;  /* fallback for old browsers */
+// background: -webkit-linear-gradient(to right, #F3A183, #EC6F66);  /* Chrome 10-25, Safari 5.1-6 */
+// background: linear-gradient(to right, #F3A183, #EC6F66); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+background: #C9D6FF;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
+
+}
+
+.flex {
+  display: flex;
+}
+
+.f-column {
+  display:flex;
+  flex-direction: column;
+}
+.f-start {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.f-between {
+  justify-content: space-between;
+}
+
+.full-w {
+  width: 100%;
+}
+
+.font-light {
+  font-weight: 300;
+}

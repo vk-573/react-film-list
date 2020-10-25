@@ -1,0 +1,41 @@
+@import "../../variables";
+
+.filter-parent {
+  display:flex;
+  align-self: center;
+  height:40px;
+  width: 40%;
+  justify-content: space-between;
+  .labels {
+  align-items: center;
+    height: 100%;
+    width: 100%;
+    border-top: 2px solid $black-10;
+    border-left: 2px solid $black-10;
+    border-bottom: 2px solid $black-10;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  .filter {
+    border-top: 2px solid $red-smooth;
+    border-right: 2px solid $red-smooth;
+    border-bottom: 2px solid $red-smooth;
+    display:flex;
+    background-color: $red-smooth;
+    justify-content: center;
+    height:100%;
+    width:80px;
+    font-weight:700;
+    font-size:18px;
+    color: $black-60;
+    color: white;
+    cursor: pointer;
+  }
+  .filter div {
+    padding-top: 6px;
+  }
+  .filter:hover {
+    background-color: $red-light;
+  }
+}
