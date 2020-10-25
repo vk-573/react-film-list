@@ -6,7 +6,7 @@ import "./filterItem.scss";
 export const FilterItem = (props) => {
 
   const onDelete = () => {
-    props.unSelect();
+    props.unSelect(props.itemName);
   }
 
   return (

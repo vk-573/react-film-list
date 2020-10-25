@@ -10,30 +10,55 @@ import { CircularProgress } from "@material-ui/core";
 export const Home= () => {
   const [loading, setLoading] = useState(true);
   const [films, setFilms] = useState([]);
+  const [allFilms, setAllFilms] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [filteredCategories, setFilteredCategories] = useState([]);
+  let initialFilms = [];
 
   const getMovies = async () => {
     const res = await movies;
-    console.log("res:", res);
     // creating new array filtred by unique value
-    setCategories(res.map(item => item.category).filter((v, i, a) => a.indexOf(v) === i));
+    const epuredCategories = res.map(item => item.category).filter((v, i, a) => a.indexOf(v) === i)
+    initialFilms = [...res];
+    setAllFilms(res);
+    console.log("initialFilm:", initialFilms);
+    console.log("res:", res);
+    setCategories(epuredCategories);
+    // setFilteredCategories(epuredCategories);
     setFilms(res);
     setLoading(false);
-    console.log("films:", films);
-    console.log("categories:", categories);
   }
 
+  // on mount
   useEffect(() => {
     getMovies();
-
   }, []);
 
-
+  const applyFilter = (categories) => {
+    console.log("categories:", categories);
+    // if no filters then don't apply on empty array
+    if (!categories.length) {
+      setFilms([...allFilms]);
+      setFilteredCategories([]);
+      return;
+    }
+    console.log("allFilms:", allFilms);
+    const filteredFilms = allFilms.filter(item => {
+      if (categories.includes(item.category)) {
+        console.log("INCLUDES§ ");
+        return true;
+      }
+    });
+    setFilteredCategories([...categories]);
+    setFilms([...filteredFilms]);
+    console.log("filteredFilm:", filteredFilms);
+    console.log("filteredCategories:", filteredCategories);
+  }
 
   return (
     <div className="home-parent">
       <div className="top-bar">
-        <FilterBar categories={categories}/>
+        <FilterBar categories={categories} onCategoryChange={applyFilter} activeCategories={filteredCategories}/>
       </div>
       {loading ? <div className="loader-p">
         <CircularProgress className="loader"/>

@@ -7,6 +7,7 @@ import "./filterBar.scss";
 export const FilterBar = (props) => {
   const [dropped, setDrop] = useState(false);
   const [categories, setCategories] = useState([{}]);
+  const [refresing, refresh] = useState(null);
 
   const onDrop = () => {
     setDrop(!dropped)
@@ -14,30 +15,44 @@ export const FilterBar = (props) => {
 
   const parseCategories = () => {
     console.log("prps.categories:", props.categories);
+    console.log("prps.activecategories:", props.activeCategories);
     const tmp = props.categories.map((item) => {
-      return {name: item, active: false};
+      return {name: item, active: props.activeCategories.includes(item) ? true : false};
     })
     setCategories(tmp);
     console.log("tmp:", tmp);
   }
 
   useEffect(() => {
-    parseCategories()
+    parseCategories();
+    console.log("HOOOOOOOO");
   }, [props]);
+
+  // trigger callback on categories changes
+  const applyFilter = () => {
+    const tmp = categories.filter((item) => {
+      if (item.active) {
+        return true;
+      }
+    }).map(item => item.name);
+    console.log("FILTER UPDATES");
+    props.onCategoryChange(tmp);
+  }
 
   const toggleCategory = (name) => {
     const idx = categories.findIndex(category => category.name === name);
     // toggle bool
     categories[idx].active = !categories[idx].active;
-    console.log('categories CHANGED:', categories);
-    setCategories(categories);
+    setCategories([...categories]);
+    applyFilter();
   }
 
   const unSelectCategory = (name) => {
     const idx = categories.findIndex(category => category.name === name);
     // toggle bool
     categories[idx].active = false;
-    setCategories(categories);
+    setCategories([...categories]);
+    applyFilter();
   }
 
   return (
@@ -58,7 +73,7 @@ export const FilterBar = (props) => {
           </button>
           <ul className={dropped ? "dropped": ""}>
             {categories.map(item => {
-              console.log("itel;", item);
+              // console.log("itel;", item);
               return <li key={item.name} className={item.active ? 'active' : ''} onClick={() => toggleCategory(item.name)}>{item.name}</li>
             }
             )}

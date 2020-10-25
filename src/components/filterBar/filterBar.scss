@@ -6,6 +6,9 @@
   height:40px;
   width: 40%;
   justify-content: space-between;
+  @media (max-width: $small) {
+    width: 80%;
+  }
   .labels {
   align-items: center;
     height: 100%;
@@ -68,6 +71,10 @@
     transition: all 0.4s ease;
     padding-left: 0px;
     padding-bottom: 6px;
+    @media (max-width: $small) {
+      position:relative;
+      right:80px;
+    }
   }
   .drop li {
     width: 100%;
