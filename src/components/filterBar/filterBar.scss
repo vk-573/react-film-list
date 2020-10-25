@@ -26,16 +26,81 @@
     justify-content: center;
     height:100%;
     width:80px;
-    font-weight:700;
-    font-size:18px;
-    color: $black-60;
-    color: white;
     cursor: pointer;
+    .button-filter {
+      background-color: $red-smooth;
+      height: 100%;
+      padding-bottom:6px;
+      cursor:pointer;
+      font-weight:700;
+      font-size:18px;
+      color: $black-60;
+      color: white;
+      border:none;
+      font-family: Arial, Helvetica, sans-serif;
+    }
   }
   .filter div {
     padding-top: 6px;
   }
-  .filter:hover {
+  .filter:hover & .button-filter {
     background-color: $red-light;
+  }
+  .drop {
+    position: relative;
+  }
+  
+  .drop ul {
+    margin-top: 10px;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    background: white;
+    left: 0px;
+    list-style: none;
+    border-radius: 5px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.4s ease;
+    padding-left: 0px;
+    padding-bottom: 6px;
+  }
+  .drop li {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height:36px;
+  }
+  
+  .drop li:hover {
+    background-color: $red-light;
+  }
+  
+  .drop a {
+    color: black;
+    text-decoration: none;
+  }
+
+  // .drop .button-filter:focus + ul {
+  //   opacity: 1;
+  //   pointer-events: all;
+  //   transform: translateY(0px);
+  // }
+  .dropped {
+    opacity: 1 !important;
+    pointer-events: all !important;
+    transform: translateY(0px) !important;
+    .active {
+      background-color: $red-smooth !important;
+    }
+    .active:hover {
+      background-color: $red-smooth !important;
+    }
   }
 }

@@ -6,7 +6,7 @@ import "./filterItem.scss";
 export const FilterItem = (props) => {
 
   const onDelete = () => {
-    console.log("delete");
+    props.unSelect();
   }
 
   return (
@@ -19,6 +19,7 @@ export const FilterItem = (props) => {
 
 FilterItem.propTypes = {
   itemName: PropTypes.string,
+  unSelect: PropTypes.func
 };
 
 export default FilterItem;

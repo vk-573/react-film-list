@@ -51,7 +51,7 @@ export const Film = (props) => {
         </div>
       </div>
       <div className="ratio-p">
-        <dov className="icons">
+        <div className="icons">
           <div>
             <ThumbUp className={liked === true ? 'liked' : ''} onClick={onLike} />
             <span className="likes">{likes}</span>
@@ -60,7 +60,7 @@ export const Film = (props) => {
             <ThumbDown className={liked === false ? 'disliked' : ''} onClick={onDislike} />
             <span className="dislikes">{dislikes}</span>
           </div>
-        </dov>
+        </div>
         <div className="ratio-bar">
           <LinearProgress variant="determinate" value={(likes / (likes + dislikes)) * 100} />
         </div>
