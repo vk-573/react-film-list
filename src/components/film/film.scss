@@ -5,7 +5,7 @@
   flex-direction: column;
   min-width: 360px;
   height: 300px;
-  border: 1px solid black;
+  // border: 1px solid black;
   margin:22px;
   .icon {
     cursor: pointer;
@@ -17,6 +17,7 @@
     justify-content: center;
     svg {
       font-size: 56px;
+      color: $black-60;
     }
   }
   .icon:hover {
@@ -26,5 +27,54 @@
     display:flex;
     flex-direction: column;
     flex-direction: start;
+    justify-content: flex-start;
+    div {
+      display: flex;
+      padding-left: 2px;
+    }
+    .title {
+      font-size: 16px;
+      font-weight: 700;
+      color: $black-60;
+    }
+    .category {
+      font-size: 13px;
+      font-weight: 500;
+      color: $black-30;
+    }
+  }
+  .ratio-p {
+    display:flex;
+    flex-direction: column;
+    .icons {
+      display:flex;
+      justify-content: space-between;
+      margin: 4px 8px 4px 8px;
+      svg {
+        color: $black-60 !important;
+        cursor: pointer;
+      }
+      .liked {
+        color: $blue-60 !important;
+      }
+      .disliked {
+        color: $blue-30 !important;
+      }
+      .likes {
+        font-weight: 500;
+        color: $black-30;
+        font-size: 11px;
+        margin-left: 2px;
+      }
+      .dislikes {
+        font-weight: 500;
+        color: $black-30;
+        font-size: 12px;
+        margin-right: 2px;
+      }
+    }
+    .ratio-bar {
+      margin: 0px 2px 0px 2px;
+    }
   }
 }
