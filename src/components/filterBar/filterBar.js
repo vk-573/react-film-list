@@ -13,18 +13,14 @@ export const FilterBar = (props) => {
   }
 
   const parseCategories = () => {
-    console.log("prps.categories:", props.categories);
-    console.log("prps.activecategories:", props.activeCategories);
     const tmp = props.categories.map((item) => {
       return {name: item, active: props.activeCategories.includes(item) ? true : false};
     })
     setCategories(tmp);
-    console.log("tmp:", tmp);
   }
 
   useEffect(() => {
     parseCategories();
-    console.log("HOOOOOOOO");
   }, [props]);
 
   // trigger callback on categories changes
@@ -33,8 +29,8 @@ export const FilterBar = (props) => {
       if (item.active) {
         return true;
       }
+      return false;
     }).map(item => item.name);
-    console.log("FILTER UPDATES");
     props.onCategoryChange(tmp);
   }
 
@@ -62,6 +58,7 @@ export const FilterBar = (props) => {
             if (item.active) {
               return <FilterItem key={item.name} itemName={item.name} unSelect={unSelectCategory} />
             }
+            return null
           })
         }
       </div>
@@ -72,7 +69,6 @@ export const FilterBar = (props) => {
           </button>
           <ul className={dropped ? "dropped": ""}>
             {categories.map(item => {
-              // console.log("itel;", item);
               return <li key={item.name} className={item.active ? 'active' : ''} onClick={() => toggleCategory(item.name)}>{item.name}</li>
             }
             )}

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import MovieIcon from '@material-ui/icons/Movie';
 import ThumbUp from '@material-ui/icons/ThumbUp';
 import ThumbDown from '@material-ui/icons/ThumbDown';
+import DeleteForever from '@material-ui/icons/DeleteForever';
 import { LinearProgress } from '@material-ui/core';
 
 import "./film.scss";
@@ -36,11 +37,15 @@ export const Film = (props) => {
     setLiked(false);
   }
 
-  console.log("props:", props);
+  const onDelete = () => {
+    props.onDelete(props.id);
+  }
+
   return (
     <div className="film-parent">
       <div className="icon">
-        <MovieIcon/>
+        <MovieIcon className="moovie"/>
+        <DeleteForever className="delete" onClick={onDelete}/>
       </div>
       <div className="details">
         <div className="title">
@@ -70,10 +75,12 @@ export const Film = (props) => {
 };
 
 Film.propTypes = {
+  id: PropTypes.string,
   title: PropTypes.string,
   category: PropTypes.string,
   likes: PropTypes.number,
   dislikes: PropTypes.number,
+  onDelete: PropTypes.func
 };
 
 export default Film;
