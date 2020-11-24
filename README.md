@@ -1,2 +1,2 @@
 # react-film-list
-A react application which lists films
+A react application which lists film
